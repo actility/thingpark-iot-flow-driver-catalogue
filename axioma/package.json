@@ -1,0 +1,47 @@
+{
+  "name": "axioma-driver",
+  "version": "1.0.1",
+  "description": "A simple driver that can decode data sent by Axioma W1 water meters.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --collectCoverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norbertherbert/axioma-driver.git"
+  },
+  "keywords": [
+    "thingpark",
+    "axioma",
+    "driver"
+  ],
+  "author": "Norbert Herbert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/norbertherbert/axioma-driver/issues"
+  },
+  "homepage": "https://github.com/norbertherbert/axioma-driver#readme",
+  "driver": {
+    "description": "A simple driver that can decode data sent by Axioma W1 water meters.",
+    "producerId": "actility",
+    "type": "thingpark-x-js",
+    "application": {
+      "producerId": "axioma",
+      "moduleId": "w1",
+      "version": "1"
+    },
+    "points": {
+      "volume": {
+        "unitId": "l",
+        "type": "double"
+      }
+    }
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
