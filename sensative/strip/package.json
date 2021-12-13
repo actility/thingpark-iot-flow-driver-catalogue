@@ -1,0 +1,29 @@
+{
+  "name": "strips-lora-translator",
+  "version": "1.0.7",
+  "description": "Open source translator for Sensative Strips (LoRaWan sensors)",
+  "specification": "https://sensative.com/sensors/strips-lorawan-sensors/",
+  "deviceImageUrl": "https://sensative.com/sensors/strips-lorawan-sensors/",
+  "manufacturerLogoUrl": "https://sensative.com/",
+  "providerLogoUrl": "https://sensative.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --collectCoverage"
+  },
+  "driver": {
+    "description": "Open source translator for Sensative Strips (LoRaWan sensors)",
+    "producerId": "sensative",
+    "type": "thingpark-x-js",
+    "private": false,
+    "application": {
+      "producerId": "sensative",
+      "moduleId": "strip",
+      "version": "1"
+    },
+    "points": {
+    }
+  },
+  "devDependencies": {
+    "jest": "^25.4.0"
+  }
+}

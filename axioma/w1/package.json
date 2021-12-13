@@ -1,5 +1,5 @@
 {
-  "name": "axioma-driver",
+  "name": "axioma-w1-driver",
   "version": "1.0.1",
   "description": "A simple driver that can decode data sent by Axioma W1 water meters.",
   "main": "index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/norbertherbert/axioma-driver.git"
+    "url": "https://github.com/actility/thingpark-iot-flow-driver-catalogue"
   },
   "keywords": [
     "thingpark",
@@ -22,9 +22,9 @@
   "author": "Norbert Herbert",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/norbertherbert/axioma-driver/issues"
+    "url": "https://github.com/actility/thingpark-iot-flow-driver-catalogue/issues"
   },
-  "homepage": "https://github.com/norbertherbert/axioma-driver#readme",
+  "homepage": "https://github.com/actility/thingpark-iot-flow-driver-catalogue",
   "driver": {
     "description": "A simple driver that can decode data sent by Axioma W1 water meters.",
     "producerId": "actility",
