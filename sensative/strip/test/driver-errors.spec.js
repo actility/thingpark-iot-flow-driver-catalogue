@@ -83,20 +83,3 @@ describe("Encode downlink errors", () => {
         }
     });
 });
-
-describe("Extract points errors", () => {
-    errors.forEach((error) => {
-        if (error.type === "uplink" && error.data !== undefined) {
-            it(error.description, () => {
-                // Given
-                const input = {
-                    message: error.data,
-                    time: error.time,
-                };
-
-                // When / Then
-                expect(() => driver.extractPoints(input)).toThrow(error.error);
-            });
-        }
-    });
-});
