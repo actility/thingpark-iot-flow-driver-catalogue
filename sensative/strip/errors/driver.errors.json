@@ -30,21 +30,5 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "error": "Too few bytes"
-    },
-    {
-        "description": "fail decode setting get uplink",
-        "type": "uplink",
-        "bytes": "021012345678",
-        "fPort": 11,
-        "time": "2020-08-02T20:00:00.000+05:00",
-        "error": "Settings uplinks are not supported by this decoder"
-    },
-    {
-        "description": "fail uplink decode due to unsupported uplink content",
-        "type": "uplink",
-        "bytes": "ffff040024",
-        "fPort": 1,
-        "time": "2020-08-02T20:00:00.000+05:00",
-        "error": "The uplink contained AverageTempReport which is currently not supported by this decoder"
     }
 ]

@@ -1,6 +1,6 @@
 {
   "name": "actility-thingspark-sensative-strips-driver",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": "git@gitlab.com:sensative/strips-lora-translator-open-source.git",
   "author": "Lars Mats <lars.mats@sensative.com>",
   "homepage": "www.sensative.com",
@@ -49,6 +49,9 @@
       },
       "disinfectAlarm": {
         "type": "int64"
+      },
+      "statusText" : {
+        "type": "string"
       }
     }
   },

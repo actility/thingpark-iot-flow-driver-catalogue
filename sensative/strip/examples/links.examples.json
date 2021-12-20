@@ -5,10 +5,7 @@
         "bytes": "FFFF13355E1201",
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
-        "data": {
-            "proximity": 13662,
-            "presence": true
-        },
+        "data": {"IRProximityReport": {"unit": "", "value": 13662}, "PresenceReport": {"unit": "", "value": true}, "historyStart": 65535},
         "points": {
             "proximity": {
                 "type": "int64",
@@ -27,8 +24,9 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "closeProximity": 255,
-            "closeProximityAlarm": true
+            "CloseProximityAlarm": { "unit": "", "value": true },
+            "IRCloseProximityReport": { "unit": "", "value": 255 },
+            "historyStart": 65535
         },
         "points": {
             "closeProximity": {
@@ -48,7 +46,8 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "disinfectAlarm": 2
+            "DisinfectAlarm": { "unit": "", "value": 2 },
+            "historyStart": 65535
         },
         "points": {
             "disinfectAlarm": {
@@ -64,7 +63,8 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "battery": 100
+            "BatteryReport": { "unit": "%", "value": 100 },
+            "historyStart": 65535
         },
         "points": {
             "battery": {
@@ -79,7 +79,9 @@
         "bytes": "FFFF00",
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
-        "data": {
+        "data":  {
+            "EmptyReport": { "unit": "", "value": 0 },
+            "historyStart": 65535
         },
         "points": {
         }
@@ -91,8 +93,8 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "idddata": "09000000",
-            "version": "098934b1"
+            "CheckInConfirmed": { "idddata": "09000000", "version": "098934b1" },
+            "historyStart": 65535
         },
         "points": {
             "version": {
@@ -112,7 +114,13 @@
         "fPort": 11,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "statusCode": 1
+            "statusCode": { "status": "Bad setting", "value": 1 }
+        },
+        "points": {
+            "statusText": {
+                "type": "string",
+                "record": "Bad setting"
+            }
         }
     },
     {

@@ -2,51 +2,20 @@ const translator = require('strips-lora-translator-open-source');
 
 const transformTable = {
     // Indexed by result's value
-    CheckInConfirmed:        { func: (r,o)=>{ r.version=o.version; r.idddata = o.idddata; } },
-    EmptyReport:             { func: (r,o)=>{}},
-    BatteryReport:           { func: (r,o)=>r.battery=o.value },
-    IRProximityReport:       { func: (r,o)=>r.proximity=o.value },
-    PresenceReport:          { func: (r,o)=>r.presence=o.value },
-    IRCloseProximityReport:  { func: (r,o)=>r.closeProximity=o.value},
-    CloseProximityAlarm:     { func: (r,o)=>r.closeProximityAlarm=o.value},
-    DisinfectAlarm:          { func: (r,o)=>r.disinfectAlarm=o.value },
+    CheckInConfirmed:        { func: (r,o,t)=>{ r.version=o.version; r.idddata = o.idddata; } },
+    EmptyReport:             { func: (r,o,t)=>{ }},
+    BatteryReport:           { func: (r,o,t)=>{r.battery=o.value} },
+    IRProximityReport:       { func: (r,o,t)=>{r.proximity=o.value } },
+    PresenceReport:          { func: (r,o,t)=>{r.presence=o.value } },
+    IRCloseProximityReport:  { func: (r,o,t)=>{r.closeProximity=o.value} },
+    CloseProximityAlarm:     { func: (r,o,t)=>{r.closeProximityAlarm=o.value} },
+    DisinfectAlarm:          { func: (r,o,t)=>{r.disinfectAlarm=o.value } },
+    statusCode:              { func: (r,o,t)=>{r.statusCode=o.value; r.statusText=o.status}}, 
 };
 
 const hiddenFields = {
-    historyStart: false,
+    historyStart: true,
 };
-
-function transformStripsDecodeUplinkToActilityFormat(obj) {
-    if (Array.isArray(obj))
-        obj = obj[0];
-    let result = {}
-    for (const key in obj) {
-        if (transformTable.hasOwnProperty(key)) {
-            let transform = transformTable[key];
-            transform.func(result, obj[key]);
-        } else {
-            if (hiddenFields.hasOwnProperty(key))
-                continue;
-            else
-                throw new Error("The uplink contained " + key + " which is currently not supported by this decoder.");
-        }
-    }
-    return result;
-}
-
-// Can only do uplinks
-function transformStripsDecodeSettingsUplinkToActilityFormat(obj) {
-    var result = {};
-    if (Array.isArray(obj))
-        obj = obj[0];
-    else 
-        throw new Error("Unexpected format emitted by decoder");
-    if (obj.hasOwnProperty('statusCode'))
-        result.statusCode = obj.statusCode.value;
-    else
-        throw new Error("Settings uplinks are not supported by this decoder");
-    return result;
-}
 
 // Full functionality
 function transformStripsDecodeDownlinkToActilityFormat(obj) {
@@ -85,12 +54,18 @@ function transformStripsEncodeDownlinkFromActilityFormat(obj) {
 function decodeUplink(input) {
     const bytes = input.bytes; // Assumed to be byte array
     const port = input.fPort;
+    let returned = null;
     switch(port) {
-    case 1: return transformStripsDecodeUplinkToActilityFormat(translator.decodeLoraStripsUplink(port, bytes));
-    case 11: return transformStripsDecodeSettingsUplinkToActilityFormat(translator.decodeLoraStripsUplink(port, bytes));
+    case 1: 
+        returned = translator.decodeLoraStripsUplink(port, bytes); 
+        break;
+    case 11: 
+        returned = translator.decodeLoraStripsUplink(port, bytes); 
+        break;
     case 2: throw new Error("This decoder does not support history data.");
     default: throw new Error("This decoder will only decode data points and status codes, not metadata or mac commands.");
     }
+    return returned[0];
 }
 
 // Full Strips downlink decoder, all functionality
@@ -107,7 +82,21 @@ function encodeDownlink(input) {
 
 // I am confused over the function of this function...
 function extractPoints(input) {
-    return input.message;
+    let result = {}
+    let message = input.message;
+    const time = new Date(input.time);
+    for (const key in message) {
+        if (transformTable.hasOwnProperty(key)) {
+            let transform = transformTable[key];
+            transform.func(result, message[key], time);
+        } else {
+            if (hiddenFields.hasOwnProperty(key))
+                continue;
+            else
+                throw new Error("The message contained '" + key + "' which is currently not supported for point transformation.");
+        }
+    }
+    return result;
 }
 
 exports.decodeUplink   = decodeUplink;
