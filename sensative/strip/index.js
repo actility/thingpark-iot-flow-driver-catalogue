@@ -593,24 +593,24 @@ function test2(rl) {
     })
 }
 
-function commandLineTest() {
-    let readline = null;
-    try {
-        readline = require("readline");
-    } catch (e) { console.log(e) };
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    test2(rl);
-}
+// function commandLineTest() {
+//     let readline = null;
+//     try {
+//         readline = require("readline");
+//     } catch (e) { console.log(e) };
+//     const rl = readline.createInterface({
+//         input: process.stdin,
+//         output: process.stdout
+//     });
+//     test2(rl);
+// }
 
 // These functions are exported from this
 
 exports.decodeLoraStripsDownlink = decodeLoraStripsDownlink;
 exports.decodeLoraStripsUplink   = decodeLoraStripsUplink;
 exports.encodeLoraStripsDownlink = encodeLoraStripsDownlink;
-exports.commandLine              = commandLineTest;
+// exports.commandLine              = commandLineTest;
 // exports.rawTranslate             = rawTranslate;
 
 
@@ -618,7 +618,7 @@ const translator = {
     decodeLoraStripsDownlink: decodeLoraStripsDownlink,
     decodeLoraStripsUplink: decodeLoraStripsUplink,
     encodeLoraStripsDownlink: encodeLoraStripsDownlink,
-    commandLine: commandLineTest,
+    // commandLine: commandLineTest,
     // rawTranslate: rawTranslate,
 }
 
