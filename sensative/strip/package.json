@@ -59,8 +59,5 @@
     "jest": "^25.4.0",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1"
-  },
-  "dependencies": {
-    "strips-lora-translator-open-source": "^1.0.6"
   }
 }
