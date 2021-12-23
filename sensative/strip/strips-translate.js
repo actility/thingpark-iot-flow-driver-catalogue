@@ -2,9 +2,6 @@
 //  Rewritten downlink decoding and encoding for Sensative Lora Strips
 //
 
-const { BADHINTS } = require('dns');
-const { report } = require('process');
-
 // Raw data decoder functions
 const decodeU32dec = (n) => {
     return n.toString(10);
@@ -562,12 +559,12 @@ const encodeLoraStripsDownlink = (obj) => {
 }
 
 // Legacy translator
-const rawTranslate = require('./raw-translate');
+// const rawTranslate = require('./raw-translate');
 
 const test_modes = {
     d: { name: 'downlink',          func: (port, data) => decodeLoraStripsDownlink(port, data) },
     u: { name: 'uplink',            func: (port, data) => decodeLoraStripsUplink(port, data) },
-    l: { name: 'legacy uplink',     func: (port, data) => rawTranslate(data, port) },
+    // l: { name: 'legacy uplink',     func: (port, data) => rawTranslate(data, port) },
 }
 
 // Test/example use code follows
@@ -612,4 +609,4 @@ exports.decodeLoraStripsDownlink = decodeLoraStripsDownlink;
 exports.decodeLoraStripsUplink   = decodeLoraStripsUplink;
 exports.encodeLoraStripsDownlink = encodeLoraStripsDownlink;
 exports.commandLine              = commandLineTest;
-exports.rawTranslate             = rawTranslate;
+// exports.rawTranslate             = rawTranslate;
