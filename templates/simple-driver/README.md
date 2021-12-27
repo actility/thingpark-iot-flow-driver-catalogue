@@ -98,6 +98,10 @@ Add the `driver` object (see [here](#driver-definition)) to the `package.json` f
 Now that we have a valid npm project, we will create the driver itself. Open a new file named `index.js` where we will
 define only an uplink decode:
 
+**PS**: In the simple driver, the `require()` method is not allowed to import an external module.
+If your driver is split into several javascript file, you have to switch to a *complex-driver* and use webpack.
+
+
 _index.js_:
 
 ```javascript
