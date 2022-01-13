@@ -120,6 +120,10 @@
             "statusText": {
                 "type": "string",
                 "record": "Bad setting"
+            },
+            "statusCode": {
+                "type": "int64",
+                "record": 1
             }
         }
     },

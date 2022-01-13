@@ -112,18 +112,37 @@ describe("Extract points", () => {
 
                 // When
                 const result = driver.extractPoints(input);
-
+                const missingPointsPackage = [];
+                const missingPointsExample = [];
                 // Then
-                Object.keys(example.points).forEach((point) => {
+                Object.keys(result).forEach((point) => {
                     if(packageJson.driver.points[point] != null){
-                        const expectedPoint = packageJson.driver.points[point];
-                        expectedPoint.record = result[point];
+                        if(example.points[point] != null){
+                            const expectedPoint = packageJson.driver.points[point];
+                            if(Array.isArray(result[point]) && typeof result[point][0] == "object"){
+                                delete expectedPoint.record;
+                                expectedPoint.records = result[point];
+                            } else {
+                                delete expectedPoint.records;
+                                expectedPoint.record = result[point];
+                            }
 
-                        expect(expectedPoint).toStrictEqual(example.points[point]);
+                            expect(expectedPoint).toStrictEqual(example.points[point]);
+                        } else {
+                            missingPointsExample.push(point);
+                        }
+
                     } else {
-                        throw new Error(point + " is not defined in the package.json");
+                        missingPointsPackage.push(point)
                     }
                 });
+
+                if(missingPointsExample.length !== 0){
+                    throw new Error("The following points: [" + missingPointsExample + "] are missing in your example '" + example.description +"'");
+                }
+                if(missingPointsPackage.length !== 0){
+                    throw new Error("The following points: [" + missingPointsPackage + "] are not defined in the package.json");
+                }
             });
         }
     });
