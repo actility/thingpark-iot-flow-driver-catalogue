@@ -13,6 +13,12 @@
                 "unitId": "%RH",
                 "type": "double",
                 "record": 31.4
+            },
+            "airHumidity": {
+                "unitId": "%RH",
+                "type": "double",
+                "record": 31.4,
+                "standardNaming": "unsupported"
             }
         }
     }

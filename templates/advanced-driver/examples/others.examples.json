@@ -40,6 +40,12 @@
             "pulseCounter": {
                 "type": "int64",
                 "record": 12
+            },
+            "airHumidity": {
+                "unitId": "%RH",
+                "type": "double",
+                "record": 31.4,
+                "standardNaming": "unsupported"
             }
         }
     },
