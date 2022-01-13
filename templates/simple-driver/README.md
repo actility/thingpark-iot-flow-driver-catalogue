@@ -2,7 +2,7 @@
 
 This example describes how you to create a simple driver using ThingPark X IoT Flow framework.
 
-The concepts and API is describe [here](../../README.md)
+The concepts and API is describe [here](../../README.md#api)
 
 -   [Simple driver](#simple-driver-guide)
     -   [Minimal driver](#minimal-driver)
@@ -11,7 +11,7 @@ The concepts and API is describe [here](../../README.md)
     -   [Returning errors](#returning-errors)
     -   [Testing](#testing)
 
-You can find the complete code [here](./example/index.js).
+You can find the complete code [here](./index.js).
 
 ## Minimal driver
 
@@ -64,7 +64,7 @@ You can add some additional properties to ease the use of the driver. The `packa
 }
 ```
 
-Add the `driver` object (see [here](#driver-definition)) to the `package.json` file containing the description of your driver:
+Add the `driver` object (see [here](../../README.md#driver-definition)) to the `package.json` file containing the description of your driver:
 
 ```json
 {
@@ -95,12 +95,13 @@ Add the `driver` object (see [here](#driver-definition)) to the `package.json` f
 }
 ```
 
+***Important:*** make sure to respect the constraints on the length of some fields. [Here](../../README.md#limitations-on-length-of-fields) you can find the details.
+
 Now that we have a valid npm project, we will create the driver itself. Open a new file named `index.js` where we will
 define only an uplink decode:
 
 **PS**: In the simple driver, the `require()` method is not allowed to import an external module.
 If your driver is split into several javascript file, you have to switch to a *complex-driver* and use webpack.
-
 
 _index.js_:
 
@@ -215,7 +216,7 @@ function encodeDownlink(input) {
 }
 ```
 
-The `encodeDownlink(input)` function takes an object as parameter (see [here](#downlink-encode)) containing the object (called `message`)
+The `encodeDownlink(input)` function takes an object as parameter (see [here](../../README.md#downlink-encode)) containing the object (called `message`)
 that will be encoded as a downlink. Then the function only checks for two objects inside `message` (`pulseCounterThreshold` and `alarm`)
 and write their contents as well as their id as byte array.
 
@@ -252,7 +253,7 @@ function decodeDownlink(input) {
 }
 ```
 
-The function takes an `input` object (see [here](#downlink-decode)) that will contain `bytes`. This simple driver will only
+The function takes an `input` object (see [here](../../README.md#downlink-decode)) that will contain `bytes`. This simple driver will only
 decode both objects as returned from `encodeDownlink(input)`: `pulseCounterThreshold` and `alarm`.
 
 After adding `encodeDownlink(input)` and `decodeDownlink(input)` functions you can re-package your driver.
@@ -262,7 +263,7 @@ After adding `encodeDownlink(input)` and `decodeDownlink(input)` functions you c
 Now that you have a driver that is able to decode uplinks and downlinks as well as encoding downlinks, lets go further
 and extract points from our payloads.
 
-As described [here](#point), a thing can have zero or more attributes, and the attributes that you want to extract as points must
+As described [here](../../README.md#point), a thing can have zero or more attributes, and the attributes that you want to extract as points must
 be first statically declared on the `package.json` file.
 
 So let's add the points `temperature`, `humidity`, `pulseCounter`, and `airHumidity` points to our package (inside the `driver` object):
@@ -314,7 +315,7 @@ So let's add the points `temperature`, `humidity`, `pulseCounter`, and `airHumid
 }
 ```
 
-As explained in [Point](#point) section, a point can contain a `unitId`, which represents its unit (see [Units]()) and a `type` (see [Point types]()). 
+As explained in [Point](../../README.md#point) section, a point can contain a `unitId`, which represents its unit (see [Units](../../UNITS.md)) and a `type` (see [Point types](../../README.md#point-types)).
 A `standardNaming` property can be added with the value `unsupported` in case the point uses a unit that does not follow the ontology.
 In this case we have two `points` (or "containers") where our values will be grouped: 
 - `temperature` which is of type `double` and has unit `Celsius`.
@@ -540,9 +541,9 @@ To execute a specific test, you can add the name of the test file in the command
 npm test driver-examples.spec.js
 ```
 
-### Add Json Schemas 
+### Add Json Schemas
 
-To provide the json schemas of your driver, you must create the directory `/json-schemas`. 
+To provide the json schemas of your driver, you must create the directory `/json-schemas`.
 
 Under the directory `/json-schemas`, create a file named `uplink.schema.json` and add the following json schema that describes the structure of the `decodeUplink` output:
 
