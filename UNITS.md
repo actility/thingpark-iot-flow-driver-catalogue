@@ -2,6 +2,7 @@
 | ------------------------------------- | --------- | ------ | ------------------- | -------------------
 | GPS                                   | GPS       | object | GPS                 | location
 | Ampere                                | A         | double | A                   | current
+| Ampere hour                           | Ah        | double | Ah                  | charge
 | Bar                                   | bar       | double | bar                 | pressure
 | Becquerel                             | Bq        | double | Bq                  | radioactivity
 | Bel                                   | Bspl      | double | bel                 | intensity, snr
@@ -60,6 +61,7 @@
 | Microsiemens per centimeter           | uS/cm     | double | &#181;S/cm          | conductivity
 | Microvolt                             | uV        | double | uV                  | batteryVoltage
 | Milliampere                           | mA        | double | mA                  | current
+| Milliampere hour                      | mAh       | double | mAh                 | charge
 | Millibar                              | mbar      | double | mbar                | pressure
 | Milliliter                            | ml        | double | ml                  | volume, capacity
 | Millimeter                            | mm        | double | mm                  | distance, accuracy, range
