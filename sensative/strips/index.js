@@ -53,7 +53,7 @@ function transformStripsEncodeDownlinkFromActilityFormat(obj) {
 // Limited functionality primarily due to possible limitation of actility decoder return format (timed offsets appear not to be possible to represent)
 function decodeUplink(input) {
     const bytes = input.bytes; // Assumed to be byte array
-    const port = input.fPort;
+    const port = parseInt(input.fPort);
     let returned = null;
     switch(port) {
     case 1: 
@@ -71,7 +71,7 @@ function decodeUplink(input) {
 // Full Strips downlink decoder, all functionality
 function decodeDownlink(input) {
     const bytes = input.bytes; // Assumed to be byte array
-    const port = input.fPort;
+    const port = parseInt(input.fPort);
     return transformStripsDecodeDownlinkToActilityFormat(translator.decodeLoraStripsDownlink(port, bytes));
 }
 
