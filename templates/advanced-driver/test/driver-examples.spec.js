@@ -114,6 +114,7 @@ describe("Extract points", () => {
                 const result = driver.extractPoints(input);
                 const missingPointsPackage = [];
                 const missingPointsExample = [];
+                const additionalPointsExamples = [];
                 // Then
                 Object.keys(result).forEach((point) => {
                     if(packageJson.driver.points[point] != null){
@@ -136,12 +137,20 @@ describe("Extract points", () => {
                         missingPointsPackage.push(point)
                     }
                 });
+                Object.keys(example.points).forEach((point) => {
+                    if(result[point] == null){
+                        additionalPointsExamples.push(point);
+                    }
+                });
 
                 if(missingPointsExample.length !== 0){
                     throw new Error("The following points: [" + missingPointsExample + "] are missing in your example '" + example.description +"'");
                 }
                 if(missingPointsPackage.length !== 0){
                     throw new Error("The following points: [" + missingPointsPackage + "] are not defined in the package.json");
+                }
+                if(additionalPointsExamples.length !== 0){
+                    throw new Error("The following points: [" + additionalPointsExamples + "] are additional wrong points in your example '" + example.description + "'");
                 }
             });
         }
