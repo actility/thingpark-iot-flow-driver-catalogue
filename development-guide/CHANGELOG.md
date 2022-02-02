@@ -1,3 +1,17 @@
+## 1.1.5
+
+### Breaking change
+
+N/A
+
+### Features
+
+N/A
+
+### Bugfixes
+
+More enhancement on automated tests scripts
+
 ## 1.1.4
 
 ### Breaking change

@@ -102,57 +102,58 @@ describe("Encode downlink", () => {
 
 describe("Extract points", () => {
     examples.forEach((example) => {
-        if (example.type === "uplink" && example.points !== undefined) {
-            it(example.description, () => {
-                // Given
-                const input = {
-                    message: example.data,
-                    time: example.time,
-                };
+        let result;
 
-                // When
-                const result = driver.extractPoints(input);
-                const missingPointsPackage = [];
-                const missingPointsExample = [];
-                const additionalPointsExamples = [];
-                // Then
-                Object.keys(result).forEach((point) => {
-                    if(packageJson.driver.points[point] != null){
-                        if(example.points[point] != null){
-                            const expectedPoint = packageJson.driver.points[point];
-                            if(Array.isArray(result[point]) && typeof result[point][0] == "object"){
-                                delete expectedPoint.record;
-                                expectedPoint.records = result[point];
+        if(example.type === "uplink"){
+            const input = {
+                message: example.data,
+                time: example.time,
+            };
+            result = driver.extractPoints(input);
+            if(Object.keys(result).length !== 0 && example.points === undefined){
+                throw new Error("The example: '" + example.description + "' must have points extracted" + " " + JSON.stringify(result));
+            } else if (example.points !== undefined) {
+                it(example.description, () => {
+                    const missingPointsPackage = [];
+                    const missingPointsExample = [];
+                    let expectedPoint;
+                    // Then
+                    Object.keys(result).forEach((point) => {
+                        //  In case there is a point that uses postfix like an endpoint, it is declared after ":"
+                        if (/:[0-9]+$/.test(point)) {
+                            const pointWithPostfix = point.substring(0, point.lastIndexOf(":"));
+                            expectedPoint = packageJson.driver.points[pointWithPostfix];
+                        } else{
+                            expectedPoint = packageJson.driver.points[point];
+                        }
+                        if(expectedPoint != null){
+                            if(example.points[point] != null){
+                                if(Array.isArray(result[point]) && typeof result[point][0] == "object"){
+                                    delete expectedPoint.record;
+                                    expectedPoint.records = result[point];
+                                } else {
+                                    delete expectedPoint.records;
+                                    expectedPoint.record = result[point];
+                                }
+
+                                expect(expectedPoint).toStrictEqual(example.points[point]);
                             } else {
-                                delete expectedPoint.records;
-                                expectedPoint.record = result[point];
+                                missingPointsExample.push(point);
                             }
 
-                            expect(expectedPoint).toStrictEqual(example.points[point]);
                         } else {
-                            missingPointsExample.push(point);
+                            missingPointsPackage.push(point)
                         }
+                    });
 
-                    } else {
-                        missingPointsPackage.push(point)
+                    if(missingPointsExample.length !== 0){
+                        throw new Error("The following points: [" + missingPointsExample + "] are missing in your example '" + example.description +"'");
+                    }
+                    if(missingPointsPackage.length !== 0){
+                        throw new Error("The following points: [" + missingPointsPackage + "] are not defined in the package.json");
                     }
                 });
-                Object.keys(example.points).forEach((point) => {
-                    if(result[point] == null){
-                        additionalPointsExamples.push(point);
-                    }
-                });
-
-                if(missingPointsExample.length !== 0){
-                    throw new Error("The following points: [" + missingPointsExample + "] are missing in your example '" + example.description +"'");
-                }
-                if(missingPointsPackage.length !== 0){
-                    throw new Error("The following points: [" + missingPointsPackage + "] are not defined in the package.json");
-                }
-                if(additionalPointsExamples.length !== 0){
-                    throw new Error("The following points: [" + additionalPointsExamples + "] are additional wrong points in your example '" + example.description + "'");
-                }
-            });
+            }
         }
     });
 });
