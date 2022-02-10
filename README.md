@@ -24,14 +24,19 @@ For more details, please study the content of the `development-guide` folder tha
       cd thingpark-iot-flow-driver-catalogue
       ```
     - Create a new branch for your driver  
-      (Replace `<producerId>` to refer to the name of the device maker and `<moduleId>` to refer to the name of a specific device. If the same driver is used for all devices of a given device maker than `<moduleId>` could be 'generic'.)
-      ```
-      git checkout -b new-driver-<producerId>-<moduleId>
+      - Replace `name` by `@<producerId>/<application.producerId>-<application.moduleId>` if the `<producerId>` and `<application.producerId>` are different.
+        Otherwise, replace `name` by `@<producerId>/<application.moduleId`.
+      - Replace `<producerId>` to refer to the name/company of driver's developer.
+      - Replace`<application.producerId>` to refer to the name of the device maker.
+      - Replace `<application.moduleId>` to refer to the name of a specific device. 
+        If the same driver is used for all devices of a given device maker than `<application.moduleId>` could be 'generic'.
+        ```
+        git checkout -b new-driver-<producerId>-<application.producerId>-<application.moduleId>
     - Copy the template
       ```
-      mkdir <producerId>
-      cp ./development-guide/templates/simple-driver/ ./<producerId>/<moduleId>
-      cd <producerId>/<moduleId>
+      mkdir <application.producerId>
+      cp ./development-guide/templates/<simple-driver|advanced-driver>/ ./<application.producerId>/<application.moduleId>
+      cd <application.producerId>/<application.moduleId>
       ```
     - Install the test framework (defined in the devDependencies field of the `package.json` file)
       ```
@@ -45,8 +50,9 @@ For more details, please study the content of the `development-guide` folder tha
     ```
 
 8. Edit and update the `package.json` file
-    - Don't change the `main`, `scripts`, `driver.type`, `driver.private` 
+    - Don't change the `scripts`, `driver.type`, `driver.private`
       and `devDependencies` properties.
+    - Don't change `main` if you are not developing an advanced driver.
     - Please note that the current driver framework does not support nodejs dependencies, 
       therefore you mustn't add any dependencies to the `package.json` file.
     - The `points` object is optional, and defines a common, vendor-independent ontology 
@@ -73,7 +79,7 @@ the device.
     git status
     git add .
     git commit -m "new-device initial commit"
-    git push origin new-driver-<producerId>-<moduleId>
+    git push origin new-driver-<producerId>-<application.producerId>-<application.moduleId>
     ```
 
 12. Creat a pull request
