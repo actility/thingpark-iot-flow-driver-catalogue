@@ -18,9 +18,9 @@ For more details, please study the content of the `development-guide` folder tha
     git clone https://github.com/<YOUR_GITHUB_USERNAME>/thingpark-iot-flow-driver-catalogue.git
     ```
 6. Figure out your driver's main identifier parameters
-   -  producerId: the name of the entity who developed this driver
-   -  application.producerId: the name of the device maker
-   -  application.moduleId: the name of a specific device 
+   -  producerId: *the name of the entity who developed this driver*
+   -  application.producerId: *the name of the device maker*
+   -  application.moduleId: *the name of a specific device* 
       *or in case this is a generic driver that can be used for all devices set this parameter to `generic`*
 
 6. Start developing your driver from a template
@@ -32,10 +32,10 @@ For more details, please study the content of the `development-guide` folder tha
         ```
         git checkout -b <BANCHNAME>
         ```
-        - The <BANCHNAME> hould be in one of the the following formats:
-           - `@<producerId>-<application.moduleId`
+        - The `<BANCHNAME>` hould be in one of the the following formats:
+           - `@<producerId>-<application.moduleId`   
              * if the `<producerId>` and `<application.producerId>` are the same        
-           - `@<producerId>-<application.producerId>-<application.moduleId>`
+           - `@<producerId>-<application.producerId>-<application.moduleId>`    
              * if the `<producerId>` and `<application.producerId>` are different
     - Copy the template
       ```
