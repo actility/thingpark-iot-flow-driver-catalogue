@@ -32,7 +32,7 @@ For more details, please study the content of the `development-guide` folder tha
         ```
         git checkout -b <BANCHNAME>
         ```
-        - The `<BANCHNAME>` hould be in one of the the following formats:
+        - The `<BANCHNAME>` parameter should be in one of the the following formats:
            - `@<producerId>-<application.moduleId`   
              * if the `<producerId>` and `<application.producerId>` are the same        
            - `@<producerId>-<application.producerId>-<application.moduleId>`    
