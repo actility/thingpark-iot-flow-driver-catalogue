@@ -20,7 +20,7 @@ For more details, please study the content of the `development-guide` folder tha
 6. Figure out your driver's main identifier parameters
    -  `producerId`: *the name of the entity who developed this driver*
    -  `application.producerId`: *the name of the device maker*
-   -  `application.moduleId`: *the name of a specific device* 
+   -  `application.moduleId`: *the name of a specific device*    
       *or in case this is a generic driver that can be used for all devices set this parameter to `generic`*
 
 6. Start developing your driver from a template
