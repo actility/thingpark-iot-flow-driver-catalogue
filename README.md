@@ -17,6 +17,11 @@ For more details, please study the content of the `development-guide` folder tha
     ```
     git clone https://github.com/<YOUR_GITHUB_USERNAME>/thingpark-iot-flow-driver-catalogue.git
     ```
+6. Figure out your driver's main identifier parameters
+   -  producerId: the name of the entity who developed this driver
+   -  application.producerId: the name of the device maker
+   -  application.moduleId: the name of a specific device 
+      *or in case this is a generic driver that can be used for all devices set this parameter to `generic`*
 
 6. Start developing your driver from a template
     - Enter the repo's directory
@@ -24,14 +29,14 @@ For more details, please study the content of the `development-guide` folder tha
       cd thingpark-iot-flow-driver-catalogue
       ```
     - Create a new branch for your driver  
-      - Replace `name` by `@<producerId>/<application.producerId>-<application.moduleId>` if the `<producerId>` and `<application.producerId>` are different.
-        Otherwise, replace `name` by `@<producerId>/<application.moduleId`.
-      - Replace `<producerId>` to refer to the name/company of driver's developer.
-      - Replace`<application.producerId>` to refer to the name of the device maker.
-      - Replace `<application.moduleId>` to refer to the name of a specific device. 
-        If the same driver is used for all devices of a given device maker than `<application.moduleId>` could be 'generic'.
         ```
-        git checkout -b new-driver-<producerId>-<application.producerId>-<application.moduleId>
+        git checkout -b <BANCHNAME>
+        ```
+        - The <BANCHNAME> hould be in one of the the following formats:
+           - `@<producerId>-<application.moduleId`
+             * if the `<producerId>` and `<application.producerId>` are the same        
+           - `@<producerId>-<application.producerId>-<application.moduleId>`
+             * if the `<producerId>` and `<application.producerId>` are different
     - Copy the template
       ```
       mkdir <application.producerId>
