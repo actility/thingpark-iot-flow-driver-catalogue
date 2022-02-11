@@ -37,10 +37,11 @@ For more details, please study the content of the `development-guide` folder tha
              * if the `<producerId>` and `<application.producerId>` are the same        
            - `@<producerId>-<application.producerId>-<application.moduleId>`    
              * if the `<producerId>` and `<application.producerId>` are different
-    - Copy the template
+    - Copy the template 
+      *You can copy either the `simple-template` or `advanced-template` folder. The example below is copying the `simple-template`.*
       ```
       mkdir <application.producerId>
-      cp ./development-guide/templates/<simple-driver|advanced-driver>/ ./<application.producerId>/<application.moduleId>
+      cp ./development-guide/templates/simple-driver/ ./<application.producerId>/<application.moduleId>
       cd <application.producerId>/<application.moduleId>
       ```
     - Install the test framework (defined in the devDependencies field of the `package.json` file)
