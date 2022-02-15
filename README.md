@@ -23,7 +23,7 @@ For more details, please study the content of the `development-guide` folder tha
    -  `application.moduleId`: *the name of a specific device*    
       *or in case this is a generic driver that can be used for all devices set this parameter to `generic`*
 
-6. Start developing your driver from a template
+7. Start developing your driver from a template
     - Enter the repo's directory
       ```
       cd thingpark-iot-flow-driver-catalogue
@@ -49,13 +49,13 @@ For more details, please study the content of the `development-guide` folder tha
       npm install
       ```
 
-7. Open your favourite IDE to edit the code of the actual directory  
+8. Open your favourite IDE to edit the code of the actual directory  
    (If you use Visual Studio Code, execute the following command:)
     ```
     code .
     ```
 
-8. Edit and update the `package.json` file
+9. Edit and update the `package.json` file
     - Don't change the `scripts`, `driver.type`, `driver.private`
       and `devDependencies` properties.
     - Don't change `main` if you are not developing an advanced driver.
@@ -64,23 +64,23 @@ For more details, please study the content of the `development-guide` folder tha
     - The `points` object is optional, and defines a common, vendor-independent ontology 
       for the decoded message payload.
 
-9.  Replace the content of the index.js file so that the signature of the 
+10.  Replace the content of the index.js file so that the signature of the 
 `decodeUplink`, `decodeDownlink`, `encodeDownlink` and `extractPoints` functions do not change.
 Only the `decodeUplink` function is mandatory that's output is an object representing 
 the decoded payload in any format the device maker prefers.
 The optional `extractPoints` function can be used to convert the output of the `decodeUplink`
 function to a vendor independent common ontology defined in the package.json file.
 
-9. Replace the files in the `examples` and `errors` folder that are used for unit tests.
+11. Replace the files in the `examples` and `errors` folder that are used for unit tests.
 Those files should include real example payloads and their decoded versions sent by
 the device.
 
-10. Run the unit tests:
+12. Run the unit tests:
     ```
     npm test
     ```
 
-11. Push your modified files back to your forked repo
+13. Push your modified files back to your forked repo
     ```
     git status
     git add .
@@ -88,7 +88,7 @@ the device.
     git push origin new-driver-<producerId>-<application.producerId>-<application.moduleId>
     ```
 
-12. Creat a pull request
+14. Creat a pull request
     - On the github webpage of your forked repo click on the "Compare & pull request" button
     - Fill in the form
     - Click on the "Create pull request" button
