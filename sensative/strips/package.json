@@ -1,6 +1,6 @@
 {
-  "name": "@sensativ/strips",
-  "version": "1.0.5",
+  "name": "@actilitypub/sensative-strips",
+  "version": "1.0.6",
   "repository": "https://github.com/actility/thingpark-iot-flow-driver-catalogue/blob/main/sensative/strip",
   "author": "Lars Mats <lars.mats@sensative.com>",
   "homepage": "www.sensative.com",
@@ -18,7 +18,7 @@
   "driver": {
     "private": true,
     "description": "Decoder for Sensative Strips Presence",
-    "producerId": "sensativ",
+    "producerId": "actilitypub",
     "type": "thingpark-x-js",
     "application": {
       "producerId": "sensativ",

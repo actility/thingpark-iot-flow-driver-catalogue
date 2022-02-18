@@ -1,5 +1,5 @@
 {
-  "name": "advanced-driver",
+  "name": "@actilitypub/advanced-driver",
   "version": "1.0.0",
   "description": "My advanced driver",
   "specification": "https://github.com/actility/thingpark-iot-flow-js-driver/blob/master/examples/simple-driver/README.md",
@@ -13,7 +13,7 @@
   },
   "driver": {
     "description": "An example of an advanced driver that is able to decode/encode data from temperature and humidity sensors with a pulse counter",
-    "producerId": "actility",
+    "producerId": "actilitypub",
     "type": "thingpark-x-js",
     "private": false,
     "application": {

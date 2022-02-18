@@ -18,7 +18,6 @@ For more details, please study the content of the `development-guide` folder tha
     git clone https://github.com/<YOUR_GITHUB_USERNAME>/thingpark-iot-flow-driver-catalogue.git
     ```
 6. Figure out your driver's main identifier parameters
-   -  `producerId`: *the name of the entity who developed this driver*
    -  `application.producerId`: *the name of the device maker*
    -  `application.moduleId`: *the name of a specific device*    
       *or in case this is a generic driver that can be used for all devices set this parameter to `generic`*
@@ -32,11 +31,7 @@ For more details, please study the content of the `development-guide` folder tha
         ```
         git checkout -b <BANCHNAME>
         ```
-        - The `<BANCHNAME>` parameter should be in one of the the following formats:
-           - `@<producerId>-<application.moduleId`   
-             * if the `<producerId>` and `<application.producerId>` are the same        
-           - `@<producerId>-<application.producerId>-<application.moduleId>`    
-             * if the `<producerId>` and `<application.producerId>` are different
+        - The `<BANCHNAME>` parameter should be in the following format: `@<actilitypublic>-<application.producerId>-<application.moduleId>`
     - Copy the template    
       *You can copy either the `simple-template` or `advanced-template` folder. The example below is copying the `simple-template`.*
       ```
@@ -56,8 +51,9 @@ For more details, please study the content of the `development-guide` folder tha
     ```
 
 9. Edit and update the `package.json` file
-    - Don't change the `scripts`, `driver.type`, `driver.private`
+    - Don't change the `scripts`, `driver.producerId`, `driver.type`, `driver.private`
       and `devDependencies` properties.
+    - Don't change the scope in the name of the package which is `actilitypub`.
     - Don't change `main` if you are not developing an advanced driver.
     - Please note that the current driver framework does not support nodejs dependencies, 
       therefore you mustn't add any dependencies to the `package.json` file.
@@ -85,7 +81,7 @@ the device.
     git status
     git add .
     git commit -m "new-device initial commit"
-    git push origin new-driver-<producerId>-<application.producerId>-<application.moduleId>
+    git push origin new-driver-<actilitypub>-<application.producerId>-<application.moduleId>
     ```
 
 14. Creat a pull request

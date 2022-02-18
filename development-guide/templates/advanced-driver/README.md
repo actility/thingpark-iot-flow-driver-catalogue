@@ -131,12 +131,6 @@ the `package.json` like this:
   ...
 ```
 
-From there, you can produce your driver using the usual command to build the package:
-
-```shell
-npm pack
-```
-
 ## Limitations
 
 As discussed in previous section, a driver exposing bundled code must be `private` and code cannot be exposed to

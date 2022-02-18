@@ -68,7 +68,7 @@ Add the `driver` object (see [here](../../README.md#driver-definition)) to the `
 
 ```json
 {
-    "name": "simple-driver",
+    "name": "@actilitypub/simple-driver",
     "version": "1.0.0",
     "description": "My simple driver",
     "specification": "https://github.com/actility/thingpark-iot-flow-js-driver/blob/master/examples/simple-driver/README.md",
@@ -83,7 +83,7 @@ Add the `driver` object (see [here](../../README.md#driver-definition)) to the `
     "license": "ISC",
     "driver": {
         "description": "An example of a simple driver that is able to decode/encode data from temperature and humidity sensors with a pulse counter",
-        "producerId": "my-driver-producer",
+        "producerId": "actilitypub",
         "type": "thingpark-x-js",
         "private": false,
         "application": {
@@ -270,7 +270,7 @@ So let's add the points `temperature`, `humidity`, `pulseCounter`, and `airHumid
 
 ```json
 {
-    "name": "my-driver",
+    "name": "@actilitypub/my-driver",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -281,7 +281,7 @@ So let's add the points `temperature`, `humidity`, `pulseCounter`, and `airHumid
     "license": "ISC",
     "driver": {
         "description": "An example of a simple driver that is able to decode/encode data from temperature and humidity sensors with a pulse counter",
-        "producerId": "my-driver-producer",
+        "producerId": "actilitypub",
         "type": "thingpark-x-js",
         "private": false,
         "application": {
@@ -603,16 +603,3 @@ Under the same directory `/json-schemas`, create a file named `downlink.schema.j
   "additionalProperties": false
 }
 ```
-### Create a tarball from the package
-
-To create a tarball from the already defined package, you must use the following command:
-
-```shell
-npm pack
-```
-
-This command must be executed in the root folder of the driver. It will generate a `.tgz` file that contains all the
-files and directories of the driver.
-
-**Important:** You must avoid including the non-necessary files into the `.tgz` file as the `node_modules`
-and `coverage` directories for example. We recommend you to copy the file `.npmignore` from [here](.npmignore).

@@ -161,7 +161,7 @@ Here is an example of a `driver` definition:
 
 ```json
 {
-  "name": "example-driver",
+  "name": "@actilitypub/example-driver",
   "version": "1.0.0",
   "description": "My example driver",
   "specification": "https://github.com/actility/thingpark-iot-flow-js-driver/blob/master/examples/simple-driver/README.md",
@@ -174,7 +174,7 @@ Here is an example of a `driver` definition:
   },
   "driver": {
     "description": "An example driver that is able to decode/encode data from temperature and humidity sensors with a pulse counter",
-    "producerId": "actility",
+    "producerId": "actilitypub",
     "type": "thingpark-x-js",
     "private": false,
     "application": {
@@ -207,10 +207,8 @@ Here is an example of a `driver` definition:
 }
 ```
 
-Here we declare a `driver.producerId` equal to `actility`. It means the `driver` is developed by Actility and it
-implements a communication protocol (`driver.application`) coming from a fictive `myManufacturer`. Most of the time,
-the `driver` developer is also the manufacturer and therefore `driver.producerId` and `driver.application.producerId`
-are the same. Like in the `application` the `driver.producerId` must be agreed with Actility.
+Here we declare a `driver.producerId` equal to `actilitypub`. It means the `driver` is developed on the public drivers catalogue of Actility, it
+implements a communication protocol (`driver.application`) coming from a fictive `myManufacturer`. 
 
 We also declare a `driver.type` equal to `thingpark-x-js`. This allows the ThingPark X IoT Flow framework to know what
 kind of driver it is as it supports several formats. In this documentation we only describe the `thingpark-x-js`
@@ -460,7 +458,7 @@ Here's an example:
 
 The following section describes the examples of the payloads of the driver.
 
-Several examples of uplink and downlink payloads must be declared directly in the driver package and especially in a directory `/example`. The name of each examples file must follow the pattern `*.examples.json`. You can split and organize the examples files according to your own logic.
+Several examples of uplink and downlink payloads must be declared directly in the driver directory and especially in a directory `/example`. The name of each examples file must follow the pattern `*.examples.json`. You can split and organize the examples files according to your own logic.
 
 These examples will be used in order to provide for the users of the driver some examples of the payload to be decoded/encoded to test the driver. In addition, it will be used to facilitate the testing of the driver while development ( you can look at [here](templates/simple-driver/test/driver-examples.spec.js) ).
 
@@ -561,7 +559,7 @@ The following section describes the Json Schema of the decoded payloads of the d
 
 As the output data from the decoding payload process is not predictable, it is better to declare Json schemas that defines the structure of this output to ease the use of driver after decoding.
 
-The Json schemas of uplink and downlink payloads must be declared directly in the driver package and especially in a directory `/json-schemas`.
+The Json schemas of uplink and downlink payloads must be declared directly in the driver directory and especially in a directory `/json-schemas`.
 Two Json schemas can be declared following the pattern: `uplink.schema.json` for uplink data, and `downlink.schema.json` for downlink data if supported.
 
 An `*.schema.json` file contains a generic json schema for all types of payload decoded by this driver of several uplink/downlink examples. You can find an example of this file in the driver example [here](templates/simple-driver/json-schemas). 
