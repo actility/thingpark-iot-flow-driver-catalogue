@@ -32,7 +32,7 @@ After completing all the information requested by npm you will find a new file `
 
 ```json
 {
-    "name": "simple-driver",
+    "name": "@actilitypub/simple-driver",
     "version": "1.0.0",
     "description": "My simple driver",
     "main": "index.js",
@@ -48,7 +48,7 @@ You can add some additional properties to ease the use of the driver. The `packa
 
 ```json
 {
-    "name": "simple-driver",
+    "name": "@actilitypub/simple-driver",
     "version": "1.0.0",
     "description": "My simple driver",
     "specification": "https://github.com/actility/thingpark-iot-flow-js-driver/blob/master/examples/simple-driver/README.md",
