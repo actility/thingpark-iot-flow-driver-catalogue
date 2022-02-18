@@ -48,6 +48,12 @@ function decodeUplink(input) {
                 });
                 i+=2;
                 break;
+            case 0x04:
+                // only an example :)
+                result.longitude = readShort(bytes[i + 1]) * 3.56;
+                result.latitude = readShort(bytes[i + 2]) * 12.56;
+                i+=2;
+                break;
             default:
                 throw new Error("Invalid uplink payload: unknown id '" + bytes[i] + "'");
         }
@@ -127,6 +133,9 @@ function extractPoints(input) {
                 value: element.volume
             })
         });
+    }
+    if (typeof input.message.longitude !== "undefined" && typeof input.message.latitude !== "undefined") {
+        result.location = [input.message.longitude, input.message.latitude];
     }
 
     return result;

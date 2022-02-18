@@ -153,6 +153,12 @@ function decodeUplink(input) {
                 });
                 i+=2;
                 break;
+            case 0x04:
+                // only an example :)
+                result.longitude = readShort(bytes[i + 1]) * 3.56;
+                result.latitude = readShort(bytes[i + 2]) * 12.56;
+                i+=2;
+                break;
             default:
                 throw new Error("Invalid uplink payload: unknown id '" + bytes[i] + "'");
         }
@@ -175,14 +181,6 @@ function readShort(bin) {
 
 As you can see by inspecting the code, the driver defines a very simple decode function where only two
 objects can be retrieved from the payload: temperature, humidity (2 bytes each) and pulse counter (1 byte).
-
-Now that your driver is finished you can create the npm package. Simply run:
-
-```shell
-npm pack
-```
-
-This will create a new file with the `.tgz` extension in the current folder containing the complete driver.
 
 ## Encoding and decoding downlinks
 
@@ -309,6 +307,10 @@ So let's add the points `temperature`, `humidity`, `pulseCounter`, and `airHumid
             "volume": {
                 "unitId": "l",
                 "type": "double"
+            },
+            "location": {
+                "unitId": "GPS",
+                "type": "object"
             }
         }
     }
@@ -322,6 +324,8 @@ In this case we have two `points` (or "containers") where our values will be gro
 - `humidty` which is of type `double` and has unit `%RH`.
 - `pulseCounter` which has type `int64` and has no unit because it is a counter.
 - `airHumidty` which is of type `double` and has unit `%RH` and it is standard naming `unsupported`.
+- `volume` which is of type `double` and has unit `l` but has several values with several time of the event.
+- `location` which is of type `object` and its unit is `GPS`.
 
 After having defined the points' "contract", we can now add the `extractPoints(input)` function that will implement it.
 
@@ -351,6 +355,9 @@ function extractPoints(input) {
                 value: element.volume
             })
         });
+    }
+    if (typeof input.message.longitude !== "undefined" && typeof input.message.latitude !== "undefined") {
+        result.location = [input.message.longitude, input.message.latitude];
     }
     return result;
 }
@@ -580,6 +587,12 @@ Under the directory `/json-schemas`, create a file named `uplink.schema.json` an
           ]
         }
       ]
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "latitude": {
+      "type": "number"
     }
   },
   "additionalProperties": false

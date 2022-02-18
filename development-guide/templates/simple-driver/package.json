@@ -40,6 +40,10 @@
       "volume": {
         "unitId": "l",
         "type": "double"
+      },
+      "location": {
+        "unitId": "GPS",
+        "type": "object"
       }
     }
   },
