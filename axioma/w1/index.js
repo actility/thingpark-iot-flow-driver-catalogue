@@ -1,4 +1,3 @@
-
 /**
  * Parse Device Status
  * Helper function used by the decodeUplink() function
