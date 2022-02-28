@@ -12,10 +12,11 @@
         "points": {
             "level": {
                 "unitId": "mm",
-                "type": "int64",
-                "record": -1192
+                "type": "double",
+                "record": -1192,
+                "standardNaming": "unsupported"
             },
-            "battery": {
+            "batteryVoltage": {
                 "unitId": "V",
                 "type": "double",
                 "record": 3.4
@@ -35,10 +36,11 @@
         "points": {
             "level": {
                 "unitId": "mm",
-                "type": "int64",
-                "record": 214
+                "type": "double",
+                "record": 214,
+                "standardNaming": "unsupported"
             },
-            "battery": {
+            "batteryVoltage": {
                 "unitId": "V",
                 "type": "double",
                 "record": 3.4

@@ -1,4 +1,5 @@
 node_modules/
-nke-zcl/test/
+test/
 coverage/
+specification/
 *.tgz

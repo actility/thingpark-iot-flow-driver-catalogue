@@ -149,7 +149,7 @@ function extractPoints(input) {
         result.level = input.message.level;
     }
     if (typeof input.message.battery !== "undefined") {
-        result.battery = input.message.battery;
+        result.batteryVoltage = input.message.battery;
     }
     return result;
 }
