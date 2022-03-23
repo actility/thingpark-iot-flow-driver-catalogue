@@ -1,0 +1,87 @@
+[
+    {
+        "description": "Simple uplink containing keepalive information",
+        "type": "uplink",
+        "bytes": "01026B3BEC0400",
+        "fPort": 1,
+        "time": "2020-08-02T20:00:00.000+05:00",
+        "data": {
+            "sensorTemperature": 21.9,
+            "relativeHumidity": 23.05,
+            "batteryVoltage": 3.4,
+            "thermistorProperlyConnected": false,
+            "extThermistorTemperature": 0
+        },
+        "points": {
+            "sensorTemperature": {
+                "unitId": "Cel",
+                "type": "double",
+                "record": 23.76
+            },
+            "relativeHumidity": {
+                "unitId": "%RH",
+                "type": "double",
+                "record": 17.97
+            },
+            "batteryVoltage": {
+                "unitId": "V",
+                "type": "double",
+                "record": 3.4
+            },
+            "thermistorProperlyConnected":{
+                "type": "boolean",
+                "record": false
+            },
+            "extThermistorTemperature": {
+                "unitId": "Cel",
+                "type": "double",
+                "record": 0
+            }
+        }
+    },
+    {
+        "description": "Uplink containing keepalive information and response of a get command",
+        "type": "uplink",
+        "bytes": "120A01026B3BEC0400",
+        "fPort": 1,
+        "time": "2020-08-02T20:00:00.000+05:00",
+        "data": {
+            "sensorTemperature": 21.9,
+            "relativeHumidity": 23.05,
+            "batteryVoltage": 3.4,
+            "thermistorProperlyConnected": false,
+            "extThermistorTemperature": 0,
+            "keepAliveTime": 10
+        },
+        "points": {
+            "sensorTemperature": {
+                "unitId": "Cel",
+                "type": "double",
+                "record": 23.76
+            },
+            "relativeHumidity": {
+                "unitId": "%RH",
+                "type": "double",
+                "record": 17.97
+            },
+            "batteryVoltage": {
+                "unitId": "V",
+                "type": "double",
+                "record": 3.4
+            },
+            "thermistorProperlyConnected":{
+                "type": "boolean",
+                "record": false
+            },
+            "extThermistorTemperature": {
+                "unitId": "Cel",
+                "type": "double",
+                "record": 0
+            },
+            "keepAliveTime": {
+                "type": "int64",
+                "record": 10
+            }
+        }
+    }
+]
