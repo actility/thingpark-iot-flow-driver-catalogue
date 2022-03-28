@@ -12,7 +12,7 @@
   },
   "driver": {
     "description": "A simple driver that is able to decode data from HT Sensor",
-    "producerId": "mclimate",
+    "producerId": "actilitypub",
     "type": "thingpark-x-js",
     "private": false,
     "application": {
