@@ -28,8 +28,8 @@ function decodeUplink(input) {
             if(thermistorProperlyConnected){
                 extThermistorTemperature = parseInt("0x"+extT1+""+extT2, 16) * 0.1;
             }
-            data.sensorTemperature = Number(temperature.toFixed(2));
-            data.relativeHumidity = Number(humidity.toFixed(2));
+            data.temperature = Number(temperature.toFixed(2));
+            data.humidity = Number(humidity.toFixed(2));
             data.batteryVoltage = Number(batteryVoltage.toFixed(2));
             data.thermistorProperlyConnected = thermistorProperlyConnected;
             data.extThermistorTemperature = extThermistorTemperature;

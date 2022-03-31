@@ -21,8 +21,8 @@ function decodeUplink(input) {
             var t1 = byteArray[7].substr(4);
             var t2 = byteArray[8].slice(0, 6);
 
-            data.sensorTemperature = (parseInt('' + t1 + t2, 2) - 400) / 10
-            data.relativeHumidity = (parseInt(byteArray[5], 2) * 4) / 10
+            data.temperature = (parseInt('' + t1 + t2, 2) - 400) / 10
+            data.humidity = (parseInt(byteArray[5], 2) * 4) / 10
             data.sAQI = parseInt('' + sAQI1 + sAQI2, 2) * 16
             data.AQI = parseInt(byteArray[2].substring(1, 6), 2) * 16
             data.CO2eq = parseInt('' + byteArray[2].slice(6, 8) + byteArray[3], 2) * 32

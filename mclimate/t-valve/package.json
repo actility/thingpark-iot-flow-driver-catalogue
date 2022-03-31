@@ -27,11 +27,13 @@
       },
       "waterTemp": {
         "unitId": "Cel",
-        "type": "double"
+        "type": "double",
+        "standardNaming":"unsupported"
       },
       "ambientTemp": {
         "unitId": "Cel",
-        "type": "double"
+        "type": "double",
+        "standardNaming":"unsupported"
       },
       "valveState":{
         "type": "boolean"

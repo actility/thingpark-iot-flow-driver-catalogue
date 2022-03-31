@@ -15,9 +15,9 @@ function decodeUplink(input) {
             var humidity = Number(((parseInt(hexData.substr(10,2),16) * 100) / 256).toFixed(2));
             var voltage = Number((((parseInt(hexData.substr(12,2),16) * 8) + 1600)/1000).toFixed(2));
             
-            data.CO2 = co2
-            data.sensorTemperature = temperature
-            data.relativeHumidity = humidity
+            data.co2Level = co2
+            data.temperature = temperature
+            data.humidity = humidity
             data.batteryVoltage = voltage
 
             return data;

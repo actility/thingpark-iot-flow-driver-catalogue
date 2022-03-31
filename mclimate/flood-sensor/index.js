@@ -18,7 +18,7 @@ function decodeUplink(input) {
 					reason: messageTypes[parseInt(byteArray[0].slice(0, 3),2)],
 					boxTamper: toBool(byteArray[0][4]),
 					flood: toBool(byteArray[0][6]),
-					battery: (parseInt(byteArray[1], 2) * 16)/1000,
+					batteryVoltage: (parseInt(byteArray[1], 2) * 16)/1000,
 			};
 		};
 		longPackage = function(byteArray) {
@@ -26,7 +26,7 @@ function decodeUplink(input) {
 					reason: messageTypes[parseInt(byteArray[0].slice(0, 3),2)],
 					boxTamper: toBool(byteArray[0][4]),
 					flood: toBool(byteArray[0][6]),
-					battery: (parseInt(byteArray[1], 2) * 16)/1000,
+					batteryVoltage: (parseInt(byteArray[1], 2) * 16)/1000,
 					temperature: parseInt(byteArray[2], 2),
 			};
 		};

@@ -1,7 +1,7 @@
 {
   "name": "@actilitypub/mclimate-aqi-sensor",
   "version": "1.0.0",
-  "description": "MClimate CO2 Sensor LoRaWAN driver",
+  "description": "MClimate AQI Sensor LoRaWAN driver",
   "specification": "https://docs.mclimate.eu/mclimate-lorawan-devices/devices/mclimate-aqi-sensor-and-notifier-lorawan",
   "deviceImageUrl": "https://www.thethingsnetwork.org/device-repository/devices/mclimate/aqi-sensor/images/aqi-sensor_hu49c03114a9ce8ad2bc0bd62c0ddb3f2a_46424_400x0_resize_q75_box.jpg",
   "manufacturerLogoUrl": "https://cdn.shopify.com/s/files/1/0043/8874/9379/files/mclimate-logo-crop.jpg?v=1639751590",
@@ -21,11 +21,11 @@
       "version": "1"
     },
     "points": {
-      "sensorTemperature": {
+      "temperature": {
           "unitId": "Cel",
           "type": "double"
       },
-      "relativeHumidity": {
+      "humidity": {
           "unitId": "%RH",
           "type": "double"
       },
@@ -46,6 +46,7 @@
           "type": "int64"
       },
       "pressure": {
+          "unitId": "bar",
           "type": "double"
       },
       "accuracyAqi": {

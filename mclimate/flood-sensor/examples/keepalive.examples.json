@@ -10,7 +10,7 @@
             "reason": "keepalive",
             "boxTamper": false,
             "flood": false,
-            "battery": 3.056 
+            "batteryVoltage": 3.056 
         },
         "points": {
             "reason": {
@@ -25,7 +25,8 @@
                 "type": "boolean",
                 "record": false
             },
-            "battery": {
+            "batteryVoltage": {
+                "unitId": "V",
                 "type": "double",
                 "record": 2.664 
             }

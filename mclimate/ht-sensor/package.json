@@ -21,11 +21,11 @@
       "version": "1"
     },
     "points": {
-      "sensorTemperature": {
+      "temperature": {
           "unitId": "Cel",
           "type": "double"
       },
-      "relativeHumidity": {
+      "humidity": {
           "unitId": "%RH",
           "type": "double"
       },
@@ -38,7 +38,8 @@
       },
       "extThermistorTemperature": {
           "unitId": "Cel",
-          "type": "double"
+          "type": "double",
+          "standardNaming":"unsupported"
       }
   }
   },
