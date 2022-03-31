@@ -39,6 +39,7 @@ For more details, please study the content of the `development-guide` folder tha
       cp ./development-guide/templates/simple-driver ./<application.producerId>/<application.moduleId>
       cd <application.producerId>/<application.moduleId>
       ```
+      *Please make sure that the name of the directory "<application.producerId>" is in lowercase.*
     - Install the test framework (defined in the devDependencies field of the `package.json` file)
       ```
       npm install

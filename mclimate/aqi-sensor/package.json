@@ -1,9 +1,9 @@
 {
-  "name": "@actilitypub/mclimate-co2-sensor",
+  "name": "@actilitypub/mclimate-aqi-sensor",
   "version": "1.0.0",
   "description": "MClimate CO2 Sensor LoRaWAN driver",
-  "specification": "https://docs.mclimate.eu/mclimate-lorawan-devices/devices/mclimate-co2-sensor-and-notifier-lorawan",
-  "deviceImageUrl": "https://www.thethingsnetwork.org/device-repository/devices/mclimate/co2-sensor/images/co2-sensor_hu068c5ce17052520c281052a3274875a9_288556_400x0_resize_box_2.png",
+  "specification": "https://docs.mclimate.eu/mclimate-lorawan-devices/devices/mclimate-aqi-sensor-and-notifier-lorawan",
+  "deviceImageUrl": "https://www.thethingsnetwork.org/device-repository/devices/mclimate/aqi-sensor/images/aqi-sensor_hu49c03114a9ce8ad2bc0bd62c0ddb3f2a_46424_400x0_resize_q75_box.jpg",
   "manufacturerLogoUrl": "https://cdn.shopify.com/s/files/1/0043/8874/9379/files/mclimate-logo-crop.jpg?v=1639751590",
   "providerLogoUrl": "https://www.actility.com/wp-content/uploads/2019/04/Actility_LOGO_color_RGB_WEB.png",
   "main": "index.js",
@@ -11,13 +11,13 @@
     "test": "jest --collectCoverage"
   },
   "driver": {
-    "description": "A simple driver that is able to decode data from CO2 Sensor",
-    "producerId": "mclimate",
+    "description": "A simple driver that is able to decode data from AQI Sensor",
+    "producerId": "actilitypub",
     "type": "thingpark-x-js",
     "private": false,
     "application": {
       "producerId": "mclimate",
-      "moduleId": "co2-sensor",
+      "moduleId": "aqi-sensor",
       "version": "1"
     },
     "points": {
@@ -33,11 +33,25 @@
           "unitId": "V",
           "type": "double"
       },
-      "CO2": {
-          "unitId": "Cel",
+      "sAQI": {
+          "type": "int64"
+      },
+      "AQI": {
+          "type": "int64"
+      },
+      "CO2eq": {
+          "type": "int64"
+      },
+      "VOC": {
+          "type": "int64"
+      },
+      "pressure": {
           "type": "double"
+      },
+      "accuracyAqi": {
+          "type": "int64"
       }
-    }
+  }
   },
   "devDependencies": {
     "jest": "^25.4.0"
