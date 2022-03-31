@@ -7,8 +7,8 @@
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
             "targetTemperature": 18,
-            "sensorTemperature": 23.76,
-            "relativeHumidity": 17.97,
+            "temperature": 23.76,
+            "humidity": 17.97,
             "motorRange": 546,
             "motorPosition": 546,
             "batteryVoltage": 3.4,
@@ -20,16 +20,15 @@
         },
         "points": {
             "targetTemperature": {
-                "unitId": "Cel",
                 "type": "int64",
                 "record": 18
             },
-            "sensorTemperature": {
+            "temperature": {
                 "unitId": "Cel",
                 "type": "double",
                 "record": 23.76
             },
-            "relativeHumidity": {
+            "humidity": {
                 "unitId": "%RH",
                 "type": "double",
                 "record": 17.97
@@ -81,8 +80,8 @@
               "software": 68
             },
             "targetTemperature": 15,
-            "sensorTemperature": 23.41,
-            "relativeHumidity": 23.83,
+            "temperature": 23.41,
+            "humidity": 23.83,
             "motorRange": 0,
             "motorPosition": 0,
             "batteryVoltage": 3.4,
@@ -94,16 +93,15 @@
           },
         "points": {
             "targetTemperature": {
-                "unitId": "Cel",
                 "type": "int64",
                 "record": 15
             },
-            "sensorTemperature": {
+            "temperature": {
                 "unitId": "Cel",
                 "type": "double",
                 "record": 23.41
             },
-            "relativeHumidity": {
+            "humidity": {
                 "unitId": "%RH",
                 "type": "double",
                 "record": 23.83

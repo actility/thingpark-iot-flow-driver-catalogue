@@ -30,8 +30,9 @@
       "boxTamper":{
           "type": "boolean"
       },
-      "battery": {
-          "type": "double"
+      "batteryVoltage": {
+        "unitId": "V",
+        "type": "double"
       }
     }
   },

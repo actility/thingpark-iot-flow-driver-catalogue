@@ -51,8 +51,8 @@ function decodeUplink(input) {
 
 
             data.targetTemperature = Number(bytes[1]);
-            data.sensorTemperature = Number(sensorTemp.toFixed(2));
-            data.relativeHumidity = Number(((bytes[3] * 100) / 256).toFixed(2));
+            data.temperature = Number(sensorTemp.toFixed(2));
+            data.humidity = Number(((bytes[3] * 100) / 256).toFixed(2));
             data.motorRange = motorRange;
             data.motorPosition = motorPosition;
             data.batteryVoltage = Number(batteryVoltageCalculated.toFixed(2));

@@ -6,18 +6,18 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "CO2": 1084,
-            "sensorTemperature": 23.7,
-            "relativeHumidity": 19.14,
+            "co2Level": 1084,
+            "temperature": 23.7,
+            "humidity": 19.14,
             "batteryVoltage": 3.45
         },
         "points": {
-            "sensorTemperature": {
+            "temperature": {
                 "unitId": "Cel",
                 "type": "double",
                 "record": 23.7
             },
-            "relativeHumidity": {
+            "humidity": {
                 "unitId": "%RH",
                 "type": "double",
                 "record": 19.14
@@ -27,8 +27,8 @@
                 "type": "double",
                 "record": 3.45
             },
-            "CO2": {
-                "unitId": "Cel",
+            "co2Level": {
+                "unitId": "ppm",
                 "type": "double",
                 "record": 1084
             }
@@ -41,20 +41,20 @@
         "fPort": 1,
         "time": "2020-08-02T20:00:00.000+05:00",
         "data": {
-            "CO2": 1084,
-            "sensorTemperature": 23.7,
-            "relativeHumidity": 19.14,
+            "co2Level": 1084,
+            "temperature": 23.7,
+            "humidity": 19.14,
             "batteryVoltage": 3.45,
             "measurementPeriod": { "good_zone": 10, "medium_zone": 10, "bad_zone": 10 }
 
         },
         "points": {
-            "sensorTemperature": {
+            "temperature": {
                 "unitId": "Cel",
                 "type": "double",
                 "record": 23.7
             },
-            "relativeHumidity": {
+            "humidity": {
                 "unitId": "%RH",
                 "type": "double",
                 "record": 19.14
@@ -64,8 +64,8 @@
                 "type": "double",
                 "record": 3.45
             },
-            "CO2": {
-                "unitId": "Cel",
+            "co2Level": {
+                "unitId": "ppm",
                 "type": "double",
                 "record": 1084
             },

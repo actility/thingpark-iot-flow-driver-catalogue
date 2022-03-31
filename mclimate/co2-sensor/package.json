@@ -21,11 +21,11 @@
       "version": "1"
     },
     "points": {
-      "sensorTemperature": {
+      "temperature": {
           "unitId": "Cel",
           "type": "double"
       },
-      "relativeHumidity": {
+      "humidity": {
           "unitId": "%RH",
           "type": "double"
       },
@@ -33,8 +33,8 @@
           "unitId": "V",
           "type": "double"
       },
-      "CO2": {
-          "unitId": "Cel",
+      "co2Level": {
+          "unitId": "ppm",
           "type": "double"
       }
     }

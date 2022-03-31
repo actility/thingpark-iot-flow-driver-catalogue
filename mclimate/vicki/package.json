@@ -23,14 +23,13 @@
     "points": 
     {
       "targetTemperature": {
-          "unitId": "Cel",
           "type": "int64"
       },
-      "sensorTemperature": {
+      "temperature": {
           "unitId": "Cel",
           "type": "double"
       },
-      "relativeHumidity": {
+      "humidity": {
           "unitId": "%RH",
           "type": "double"
       },
